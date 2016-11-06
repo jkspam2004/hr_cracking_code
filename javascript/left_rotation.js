@@ -1,3 +1,17 @@
+/*
+    left_rotation:
+    Given an array of integers and a number, perform left rotations on the array.
+    Then print the updated array as a single line of space-separated integers.
+
+    input: 
+    5 4
+    1 2 3 4 5
+
+    output:
+    5 1 2 3 4
+*/
+
+
 process.stdin.resume();
 process.stdin.setEncoding('ascii');
 
@@ -21,22 +35,25 @@ function readLine() {
 /////////////// ignore above this line ////////////////////
 
 function main() {
-    var n_temp = readLine().split(' ');
+    var n_temp = readLine().split(' '); // read the first line from input
     var n = parseInt(n_temp[0]);
     var k = parseInt(n_temp[1]);
-    a = readLine().split(' ');
+    a = readLine().split(' '); // read the second line of input
     a = a.map(Number);
     
     function rotate_left_array(a, n, k) {
-        var k = -k;
-        
-        while (k < 0) {
+        var k = -k; // shifting left is a negative offset
+
+        // make offset positive to work with
+        // i.e. shifting left 4 is equivalent to shift right 1 for a 5 element array
+        while (k < 0) { 
             k += n;
         }
         
         newarr = [];
         for (var i=0; i<n; i++) {
-            if (i >= n-k) {
+            // when adding offset to current index, will shift off the end of array
+            if (i >= n-k) { 
                 newarr[i - (n-k)] = a[i];
             } else {
                 newarr[i+k] = a[i];
