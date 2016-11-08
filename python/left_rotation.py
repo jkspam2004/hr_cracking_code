@@ -26,3 +26,7 @@ answer = array_left_rotation(a, n, k);
 print(*answer, sep=' ')
 
 
+# list.insert(position, value)
+# list.append(value)
+
+
