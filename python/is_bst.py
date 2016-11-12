@@ -44,10 +44,29 @@ def check_binary_search_tree(node, min, max):
         
     return truth_left and truth_right
 
+"""
+  valid tree
+  2
+  1 2 3 4 5 6 7
+  expected = yes
+"""
+root = Node(4)
+root.left = Node(2)
+root.right = Node(6)
+root.left.left = Node(1)
+root.left.right = Node(3)
+root.right.left = Node(5)
+root.right.right = Node(7)
+
+is_valid = check_binary_search_tree_(root)
+if is_valid:
+    print("is valid BST")
+else:
+    print("not valid BST")
 
 
 """
-invalid valid tree
+invalid BST tree
 4
 2 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
 expected = No
@@ -99,22 +118,4 @@ if is_valid:
 else:
     print("not valid BST")
 
-"""
-valid tree
-2
-1 2 3 4 5 6 7
-"""
-root = Node(4)
-root.left = Node(2)
-root.right = Node(6)
-root.left.left = Node(1)
-root.left.right = Node(3)
-root.right.left = Node(5)
-root.right.right = Node(7)
-
-is_valid = check_binary_search_tree_(root)
-if is_valid:
-    print("is valid BST")
-else:
-    print("not valid BST")
 
