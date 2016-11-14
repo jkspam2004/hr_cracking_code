@@ -16,14 +16,14 @@
 def number_needed(a, b):
     char_count = {}
 
-    # store count of characters from first string
+    # store count of characters from first string as first element of list
     for c in list(a):
         first = char_count[c][0] + 1 if c in char_count else 1
         char_count[c] = [first, 0]
 
-    # store count of characters from second string
+    # store count of characters from second string as second element of list
     for c in list(b):
-        first = char_count[c][0] if c in char_count else 0
+        first = char_count[c][0] if c in char_count else 0 # keep first element if exist
         second = char_count[c][1] + 1 if c in char_count else 1
         char_count[c] = [first, second]
 
