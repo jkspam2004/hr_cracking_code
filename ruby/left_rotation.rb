@@ -12,9 +12,6 @@
   5 1 2 3 4 5
 =end
 
-
-
-
 n,k = gets.strip.split(' ')
 n = n.to_i # length of array
 k = k.to_i # offset
