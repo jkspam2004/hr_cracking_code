@@ -1,6 +1,6 @@
 '''
-Braces valid:
-Given a string of brackets/braces/parens, determine if they are valid (matching open and closing pairs)
+    Braces valid:
+    Given a string of brackets/braces/parens, determine if they are valid (matching open and closing pairs)
 '''
 
 def braces_valid(values):
@@ -16,6 +16,10 @@ def braces_valid(values):
             if char == '{' or char == '[' or char == '(':
                 stack.append(char)
             elif char == '}' or char == ']' or char == ')':
+                if len(stack) <= 0:
+                    valid = False
+                    break
+                
                 if char == '}' and stack.pop() != '{':
                     valid = False
                     break
