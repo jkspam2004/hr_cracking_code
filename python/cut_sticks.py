@@ -36,7 +36,7 @@ arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
 
 #for index,num  in enumerate arr
 
-# O(n^2) time complexity and O(n) space complexity
+# O(n^2) time complexity
 # each time we "cut" a stick, add it to our new list
 def cut_sticks(arr):
     while(len(arr)):
