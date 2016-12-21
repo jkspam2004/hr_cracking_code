@@ -34,6 +34,8 @@ import sys
 n = int(input().strip())
 arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
 
+#for index,num  in enumerate arr
+
 # O(n^2) time complexity and O(n) space complexity
 # each time we "cut" a stick, add it to our new list
 def cut_sticks(arr):
@@ -53,12 +55,17 @@ def cut_sticks(arr):
 
         arr = newarr 
 
+print("cut_sticks")
 cut_sticks(arr)
 
 # better solution still O(n^2) in time but constant for space
 # utilize the N number of sticks given to us to control our while loop
 # solution borrowed from Alex W.
-def cut_sticks_better(n, arr):
+def cut_sticks_better(n, a):
+    # list is passed by reference. make a copy of values into new memory space below
+    #arr = a[:] # method 1: slice
+    arr = list(a)  # method 2: list()
+
     while(n > 0):
         minval = 1000
 
@@ -77,4 +84,30 @@ def cut_sticks_better(n, arr):
 print("cut_sticks_better")        
 cut_sticks_better(n, arr)
 
+# best solution: O(n log n) for the sorting up front - from discussion
+# sticks = sorted(list(map(int, input().split())))
+def cut_sticks_best(n, sticks):
+    sticks.sort()
 
+    previous_stick = 0
+    for index, stick in enumerate(sticks):
+        if stick != previous_stick:
+            print(len(sticks) - index)
+            previous_stick = stick
+
+
+print("cut_sticks_best")
+cut_sticks_best(n, arr)
+
+
+'''
+input:
+8
+1 2 3 4 3 3 2 1
+
+output:
+8
+6
+4
+1
+'''
