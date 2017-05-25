@@ -50,23 +50,31 @@ only one "grand" in the magazine and the ransom uses two
 
 class Solution(object):
     def ransom_note(self, magazine, ransom):
+        one_liner_dict = {word:magazine.count(word) for word in magazine}
+        print(one_liner_dict)
+
         magazine_dict = {}
         for word in magazine:
-            count = magazine_dict.get(word, 0)
-            magazine_dict[word] = count + 1
+            magazine_dict[word] = magazine_dict.get(word, 0) + 1
            
         for word in ransom:
-            if word in magazine_dict and magazine_dict[word] > 0:
-                magazine_dict[word] -= 1
-            else:
+            if magazine_dict.get(word, 0) > 0:
+                magazine_dict[word] -= 1 # subtract from frequency of word in dictionary
+            else: # ransom word not in our dictionary
                 return False
-                
+
+
         return True
 
 if __name__ == "__main__":
+    """
     m, n = map(int, input().strip().split(' '))
     magazine = input().strip().split(' ')
     ransom = input().strip().split(' ')
+    """
+
+    magazine = "give me one grand today night".split(' ')
+    ransom = "give one grand today".split(' ')
 
     s = Solution()
     answer = s.ransom_note(magazine, ransom)
