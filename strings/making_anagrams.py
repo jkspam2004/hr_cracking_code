@@ -9,7 +9,12 @@
     must contain the same exact letters with the same exact frequency.
 
     Input: two strings
+    cde
+    abc
     Output: total number of deletions for both strings to become anagrams
+    4
+    Remove d and e from cde to get c
+    Remove a and b from abc to get c
 '''
 
 # store character counts into a dictionary of a list pair
